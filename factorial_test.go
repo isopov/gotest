@@ -20,6 +20,7 @@ func FactorialTests() []struct {
 		{"one", 1, big.NewInt(1)},
 		{"two", 2, big.NewInt(2)},
 		{"five", 5, big.NewInt(120)},
+		{"seventeen", 17, big.NewInt(355687428096000)},
 	}
 }
 
@@ -35,6 +36,10 @@ func TestMulRangeFactorial(t *testing.T) {
 	testFactorial(t, MulRangeFactorial)
 }
 
+func TestRunningSliceFactorial(t *testing.T) {
+	testFactorial(t, RunningSliceFactorial)
+}
+
 func testFactorial(t *testing.T, factorial func(uint) *big.Int) {
 	for _, tt := range FactorialTests() {
 		t.Run(tt.name, func(t *testing.T) {
@@ -46,14 +51,18 @@ func testFactorial(t *testing.T, factorial func(uint) *big.Int) {
 }
 
 func TestBracketsFactorial(t *testing.T) {
-	t.SkipNow()
-
 	testFactorial(t, BracketsFactorial)
 }
 
 func TestForAndBracketsFactorial(t *testing.T) {
-	t.SkipNow()
+	testForAndFactorial(t, BracketsFactorial)
+}
 
+func TestForAndRunningSliceFactorial(t *testing.T) {
+	testForAndFactorial(t, RunningSliceFactorial)
+}
+
+func testForAndFactorial(t *testing.T, factorial func(uint) *big.Int) {
 	tests := []struct {
 		name string;
 		arg  uint
@@ -69,10 +78,10 @@ func TestForAndBracketsFactorial(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			bracketsResult := BracketsFactorial(tt.arg)
 			forResult := ForFactorial(tt.arg)
-			if !reflect.DeepEqual(bracketsResult, forResult) {
-				t.Errorf("ForFactorial() = %v, BracketsFactorial = %v", forResult, bracketsResult)
+			otherResult := factorial(tt.arg)
+			if !reflect.DeepEqual(otherResult, forResult) {
+				t.Errorf("ForFactorial() = %v, OtherFactorial() = %v", forResult, otherResult)
 			}
 		})
 	}
