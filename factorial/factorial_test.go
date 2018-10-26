@@ -1,4 +1,4 @@
-package gotest
+package factorial
 
 import (
 	"math/big"
