@@ -1,7 +1,7 @@
 package pointers
 
 import (
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/suite"
 	"testing"
 )
 
@@ -17,15 +17,25 @@ func ChangeSmth(foobar *Foobar) {
 	foobar.foo = "baz"
 }
 
-
-func TestChangeNothing(t *testing.T) {
-	foobar := Foobar{"foo", "bar"}
-	ChangeNothing(foobar)
-	assert.Equal(t, foobar, Foobar{"foo", "bar"})
+type PointersSuite struct {
+	suite.Suite
+	foobar *Foobar
 }
 
-func TestChangeSomething(t *testing.T) {
-	foobar := Foobar{"foo", "bar"}
-	ChangeSmth(&foobar)
-	assert.Equal(t, foobar, Foobar{"baz", "bar"})
+func TestPointersSuite(t *testing.T) {
+	suite.Run(t, &PointersSuite{})
+}
+
+func (s *PointersSuite) SetupTest() {
+	s.foobar = &Foobar{"foo", "bar"}
+}
+
+func (s *PointersSuite) TestChangeNothing() {
+	ChangeNothing(*s.foobar)
+	s.Equal(&Foobar{"foo", "bar"}, s.foobar)
+}
+
+func (s *PointersSuite) TestChangeSomething() {
+	ChangeSmth(s.foobar)
+	s.Equal(&Foobar{"baz", "bar"}, s.foobar)
 }
