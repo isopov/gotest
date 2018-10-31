@@ -10,6 +10,14 @@
   version = "v1.1.1"
 
 [[projects]]
+  branch = "master"
+  digest = "1:0ecf1036b34502ca292bce813e868a23cc575481af0245a61a4aeaf82af96c01"
+  name = "github.com/joomcode/errorx"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "1a6ff49934fae6e953bc482583e26edc429f95fa"
+
+[[projects]]
   digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
   name = "github.com/pmezard/go-difflib"
   packages = ["difflib"]
@@ -32,6 +40,10 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/stretchr/testify/suite"]
+  input-imports = [
+    "github.com/joomcode/errorx",
+    "github.com/stretchr/testify/assert",
+    "github.com/stretchr/testify/suite",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
