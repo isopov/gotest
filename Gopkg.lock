@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  branch = "master"
+  digest = "1:0437baf2f2a60f33240dab63735cd291897e23d5033580ac470c56fd029ad215"
+  name = "github.com/couchbaselabs/ghistogram"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "b7f3fee8c01e506390825f33c9fdf108cdcc24b1"
+
+[[projects]]
   digest = "1:ffe9824d294da03b391f44e1ae8281281b4afc1bdaa9588c9097785e3af10cec"
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
@@ -41,6 +49,7 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/couchbaselabs/ghistogram",
     "github.com/joomcode/errorx",
     "github.com/stretchr/testify/assert",
     "github.com/stretchr/testify/suite",
