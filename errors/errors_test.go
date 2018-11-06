@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/joomcode/errorx"
 	"github.com/stretchr/testify/assert"
-	"log"
 	"testing"
 )
 
@@ -30,7 +29,6 @@ func Baz() *errorx.Error {
 
 func TestErrors(t *testing.T) {
 	err := Baz()
-	log.Printf()
 	errorMsg := fmt.Sprintf("Error: %+v", err)
 	assert.Contains(t, errorMsg, "errors.Foo")
 	assert.Contains(t, errorMsg, "errors.Bar")
