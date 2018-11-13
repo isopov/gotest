@@ -19,6 +19,7 @@ func FactorialTests() []struct {
 		{"zero", 0, big.NewInt(1)},
 		{"one", 1, big.NewInt(1)},
 		{"two", 2, big.NewInt(2)},
+		{"three", 3, big.NewInt(6)},
 		{"five", 5, big.NewInt(120)},
 		{"seventeen", 17, big.NewInt(355687428096000)},
 	}
@@ -26,6 +27,10 @@ func FactorialTests() []struct {
 
 func TestRecFactorial(t *testing.T) {
 	testFactorial(t, RecFactorial)
+}
+
+func TestGoRecFactorial(t *testing.T) {
+	testFactorial(t, GoRecFactorial)
 }
 
 func TestForFactorial(t *testing.T) {
@@ -44,7 +49,7 @@ func testFactorial(t *testing.T, factorial func(uint) *big.Int) {
 	for _, tt := range FactorialTests() {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := factorial(tt.arg); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("ForFactorial() = %v, want %v", got, tt.want)
+				t.Errorf("factorial() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -60,6 +65,10 @@ func TestForAndBracketsFactorial(t *testing.T) {
 
 func TestForAndRunningSliceFactorial(t *testing.T) {
 	testForAndFactorial(t, RunningSliceFactorial)
+}
+
+func TestForAndGoRecFactorial(t *testing.T) {
+	testForAndFactorial(t, GoRecFactorial)
 }
 
 func testForAndFactorial(t *testing.T, factorial func(uint) *big.Int) {

@@ -13,6 +13,37 @@ func RecFactorial(n uint) *big.Int {
 	return result
 }
 
+func GoRecFactorial(n uint) *big.Int {
+	if n == 0 || n == 1 {
+		return big.NewInt(1)
+	}
+	c := make(chan *big.Int)
+	go goRecFactorial(1, n, c)
+	res := <-c
+	return res
+}
+
+func goRecFactorial(from, to uint, c chan *big.Int) {
+	if from == to {
+		c <- big.NewInt(int64(from))
+		return
+	}
+	if to-from == 1 {
+		result := new(big.Int)
+		result.Mul(big.NewInt(int64(from)), big.NewInt(int64(to)))
+		c <- result
+		return
+	}
+	c2 := make(chan *big.Int)
+	m := (from + to) / 2
+	go goRecFactorial(from, m, c2)
+	go goRecFactorial(m+1, to, c2)
+	res1, res2 := <-c2, <-c2
+	result := new(big.Int)
+	result.Mul(res1, res2)
+	c <- result
+}
+
 func ForFactorial(n uint) *big.Int {
 	result := big.NewInt(1)
 	for i := 2; i <= int(n); i++ {

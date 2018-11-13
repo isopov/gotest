@@ -44,6 +44,19 @@ func BenchmarkMulRangeFactorial10000(b *testing.B) {
 	benchmarkFactorial(10000, MulRangeFactorial, b)
 }
 
+func BenchmarkGoRecFactorial10(b *testing.B) {
+	benchmarkFactorial(10, GoRecFactorial, b)
+}
+func BenchmarkGoRecFactorial100(b *testing.B) {
+	benchmarkFactorial(100, GoRecFactorial, b)
+}
+func BenchmarkGoRecFactorial1000(b *testing.B) {
+	benchmarkFactorial(1000, GoRecFactorial, b)
+}
+func BenchmarkGoRecFactorial10000(b *testing.B) {
+	benchmarkFactorial(10000, GoRecFactorial, b)
+}
+
 func BenchmarkBracketsFactorial10(b *testing.B) {
 	benchmarkFactorial(10, BracketsFactorial, b)
 }
