@@ -1,5 +1,11 @@
 language: go
 
+install: 
+- go get -t -v ./...
+- go get github.com/kulshekhar/fungen
+- go install github.com/kulshekhar/fungen
+- go generate ./...
+
 script:
 - go test -v -coverprofile=coverage.txt -covermode=atomic ./...
 
