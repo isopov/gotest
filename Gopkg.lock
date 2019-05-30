@@ -58,9 +58,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/couchbaselabs/ghistogram",
-    "github.com/davecgh/go-spew/spew",
     "github.com/joomcode/errorx",
-    "github.com/pmezard/go-difflib/difflib",
     "github.com/stretchr/testify/assert",
     "github.com/stretchr/testify/require",
     "github.com/stretchr/testify/suite",

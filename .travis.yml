@@ -1,7 +1,10 @@
 language: go
 
-install: 
-- go get -t -v ./...
+install:
+- curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+- dep ensure
+- git diff
+- git diff-index --quiet HEAD --
 - go get github.com/kulshekhar/fungen
 - go install github.com/kulshekhar/fungen
 - go generate ./...
