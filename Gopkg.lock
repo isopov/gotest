@@ -19,11 +19,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:0ecf1036b34502ca292bce813e868a23cc575481af0245a61a4aeaf82af96c01"
+  digest = "1:f3cca223fb0d995ca8212185d80eb8525150c144072239970913cae0fa785178"
   name = "github.com/joomcode/errorx"
   packages = ["."]
   pruneopts = "UT"
-  revision = "1a6ff49934fae6e953bc482583e26edc429f95fa"
+  revision = "1eb1095df7bf345a5267c30271a849ab0c76d1c2"
 
 [[projects]]
   digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
