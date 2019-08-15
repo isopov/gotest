@@ -18,12 +18,12 @@
   version = "v1.1.1"
 
 [[projects]]
-  digest = "1:d1a5ea6ec2f2592b23d53c13fd1c97cc033f33172743f964b8c1e321cbf816f8"
+  digest = "1:096abfb869a3f8ddf33dc56c167bbac5f9680f555cd9d4ffa96d82d64b53dbe6"
   name = "github.com/joomcode/errorx"
   packages = ["."]
   pruneopts = "UT"
-  revision = "fdac6a0426b2762ed554e68c3d4cac8622aaadf3"
-  version = "0.8.0"
+  revision = "30da670594f39d823904fa86548c5da1b6dfc0d0"
+  version = "v1.0.0"
 
 [[projects]]
   digest = "1:0028cb19b2e4c3112225cd871870f2d9cf49b9b4276531f03438a88e94be86fe"
