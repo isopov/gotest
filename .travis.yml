@@ -1,8 +1,11 @@
 language: go
 
+go:
+- 1.13
+
 install:
 - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-- dep ensure
+- go mod tidy
 - git diff
 - git diff-index --quiet HEAD --
 - go get github.com/kulshekhar/fungen
